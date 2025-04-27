@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/logo.png">
+    <title>Il Messaggero MIO</title>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom mx-auto border-bottom sticky-top"
+     style="max-width: 60%; background-color: white">
+    <div class="container-fluid">
+        <!-- Sidebar and Search Icons -->
+        <button class="icon-btn me-2" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <i class="bi bi-list"></i>
+        </button>
+        <button class="icon-btn me-4" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <i class="bi bi-search"></i>
+        </button>
+        <!-- Navigation Links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row overflow-hidden d-none d-md-flex">
+            <li class="nav-item">
+                <a class="nav-link px-2 border-end" href="#">PERSONE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2 border-end" href="#">SCHEDE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2" href="#">ARCHIVIO</a>
+            </li>
+        </ul>
+        <!-- Right Section -->
+        <div class="d-none d-md-flex align-items-center">
+            <button class="icon-btn me-3"><i class="bi bi-bell fs-4 bell-hover"></i></button>
+            <button class="btn btn-dark-red me-2 pi">
+                <i class="bi bi-pin-fill" style="display: inline-block; transform: rotate(45deg)"></i> LE TUE NOTIZIE
+            </button>
+            <button class="btn btn-bright-red me-3">PROMO FLASH</button>
+            <a class="nav-link text-black" href="#"><i class="bi bi-person"></i> ACCEDI</a>
+        </div>
+    </div>
+</nav>
+
+<!-- LOGO HEADER -->
+<div class="container-fluid">
+    <div class="py-3 mx-auto border-bottom" style="max-width: 60%;">
+        <div class="row align-items-center text-center">
+            <!-- Placeholder column on medium+ screens -->
+            <div class="col-md-4 d-none d-md-block"></div>
+            <!-- Central logo -->
+            <div class="col-12 col-md-4">
+                <img src="resources/logo_header.png" alt="Logo del Messaggero" title="Logo del Messaggero"
+                     class="img-fluid" style="max-height: 10em;">
+            </div>
+            <!-- Right section with dynamic date, time, and weather -->
+            <div class="col-md-4 text-end d-none d-md-block">
+                <div class="fw-bold" id="date-time">Venerdì 11 Aprile agg. alle 15:58</div>
+                <div id="weather-info">
+                    <i class="bi bi-brightness-high-fill me-1 text-warning" aria-label="Sunny"></i>
+                    <span id="temperature">17.3 °C Roma</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for weather-time info -->
+    <script>
+        // Update date and time dynamically
+        const updateDateTime = () => {
+            const now = new Date();
+            const days = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+            const months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+            document.getElementById('date-time').textContent = `${day} ${date} ${month} agg. alle ${time}`;
+        };
+
+        // Simulating weather update
+        const updateWeather = () => {
+            const temperature = "18.1 °C Roma";
+            document.getElementById('temperature').textContent = temperature;
+        };
+
+        updateDateTime();
+        updateWeather();
+        setInterval(updateDateTime, 60000);
+    </script>
+</div>
+
+<!-- Lower header -->
+<nav class="mx-auto border-top border-bottom py-2 d-none d-sm-block" style="max-width: 60%;">
+    <div class="d-flex flex-wrap justify-content-center gap-3 gap-md-5 text-uppercase fw-semibold text-danger small">
+        <span><a href="#" style="color:#d32f2f">Placeholder 1</a></span>
+        <span><a href="#" style="color:#d32f2f">Placeholder 2</a></span>
+        <span><a href="#" style="color:#d32f2f">Placeholder 3</a></span>
+        <span><a href="#" style="color:#d32f2f">Placeholder 4</a></span>
+        <span><a href="#" style="color:#d32f2f">Placeholder 5</a></span>
+        <span><a href="#" style="color:#d32f2f">Placeholder 6</a></span>
+    </div>
+</nav>
+
+<!-- First row of four articles -->
+<div class="mx-auto border-top border-bottom py-2 d-none d-sm-block" style="max-width: 60%;">
+    <div class="row g-4">
+        <article class="col-12 col-md-3">
+            <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                 title="Description of the article image" class="img-fluid">
+            <a href="#">Placeholder article description text.</a>
+            <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+        </article>
+        <article class="col-12 col-md-3">
+            <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                 title="Description of the article image" class="img-fluid">
+            <a href="#">Placeholder article description text.</a>
+            <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+        </article>
+        <article class="col-12 col-md-3">
+            <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                 title="Description of the article image" class="img-fluid">
+            <a href="#">Placeholder article description text.</a>
+            <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+        </article>
+        <article class="col-12 col-md-3">
+            <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                 title="Description of the article image" class="img-fluid">
+            <a href="#">Placeholder article description text.</a>
+            <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+        </article>
+    </div>
+</div>
+
+<!-- Offcanvas body - sidebar -->
+<div class="offcanvas offcanvas-start mx-auto" tabindex="-1" id="sidebarMenu" style="max-width: 60%;">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">
+            <img src="resources/logo.png" alt="Logo" title="Logo del Messaggero" style="height: 100%;">
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row">
+            <section>
+                <form class="d-flex w-100" role="search">
+                    <input class="form-control me-2 w-100" type="search" placeholder="Cerca nel Sito"
+                           aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </section>
+        </div>
+        <hr class="my-3">
+        <div><strong>PIÙ POPOLARI</strong></div>
+        <ul class="list-unstyled row">
+            <li class="col-6"><a href="#">Re Carlo</a></li>
+            <li class="col-6"><a href="#">Pensioni</a></li>
+            <li class="col-6"><a href="#">Donald Trump</a></li>
+            <li class="col-6"><a href="#">Alessandro Coatti</a></li>
+            <li class="col-6"><a href="#">Dazi</a></li>
+            <li class="col-6"><a href="#">Elisabetta Canalis</a></li>
+        </ul>
+        <hr class="my-3">
+        <div class="section-title">IN EVIDENZA</div>
+        <ul class="list-unstyled row">
+            <li class="col-6"><a href="#">Archivio Storico</a></li>
+            <li class="col-6"><a href="#">Le Mie Notizie</a></li>
+            <li class="col-6"><a href="#">Newsletter</a></li>
+        </ul>
+        <hr class="my-3">
+        <div class="section-title">SEZIONI</div>
+        <ul class="list-unstyled row row-cols-2">
+            <li><a href="#">Persone</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Italia</a></li>
+            <li><a href="#">Social</a></li>
+            <li><a href="#">Mondo</a></li>
+            <li><a href="#">Animali</a></li>
+            <li><a href="#">Economia</a></li>
+            <li><a href="#">Alimentazione</a></li>
+            <li><a href="#">Televisione</a></li>
+            <li><a href="#">Politica</a></li>
+            <li><a href="#">Salute</a></li>
+            <li><a href="#">Libri</a></li>
+            <li><a href="#">Schede</a></li>
+            <li><a href="#">Scienza</a></li>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#">Tecnologia</a></li>
+            <li><a href="#">Spettacoli</a></li>
+            <li><a href="#">PC</a></li>
+            <li><a href="#">Donna</a></li>
+            <li><a href="#">Scuola</a></li>
+            <li><a href="#">Vaticano</a></li>
+            <li><a href="#">Moda</a></li>
+            <li><a href="#">Motori</a></li>
+            <li><a href="#">Viaggi</a></li>
+            <li><a href="#">Obbligati a</a></li>
+            <li><a href="#">Casa</a></li>
+            <li><a href="#">Crescere</a></li>
+            <li><a href="#">Ultimissime</a></li>
+            <li><a href="#">Gossip</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="#">Videogames</a></li>
+        </ul>
+        <hr class="my-3">
+        <div class="section-title">EDIZIONI LOCALI</div>
+        <ul class="list-unstyled row row-cols-2">
+            <li><a href="#">Roma</a></li>
+            <li><a href="#">Viterbo</a></li>
+            <li><a href="#">Rieti</a></li>
+            <li><a href="#">Latina</a></li>
+            <li><a href="#">Frosinone</a></li>
+            <li><a href="#">Abruzzo</a></li>
+            <li><a href="#">Marche</a></li>
+            <li><a href="#">Umbria</a></li>
+        </ul>
+        <hr class="my-3">
+        <div class="section-title">MULTIMEDIA</div>
+        <ul class="list-unstyled row row-cols-2">
+            <li><a href="#">Video</a></li>
+            <li><a href="#">Foto</a></li>
+            <li><a href="#">Podcast</a></li>
+        </ul>
+        <hr class="my-3">
+        <div class="section-title">SERVIZI</div>
+        <ul class="list-unstyled row row-cols-2">
+            <li><a href="#">Meteo</a></li>
+            <li><a href="#">Abbonamento</a></li>
+            <li><a href="#">Oroscopo</a></li>
+            <li><a href="#">Necrologie</a></li>
+            <li><a href="#">Sondaggi</a></li>
+            <li><a href="#">Legalmente</a></li>
+        </ul>
+        <hr class="my-3">
+        <div class="section-title">NETWORK</div>
+        <ul class="list-unstyled row row-cols-2">
+            <li><a href="#">Il Mattino</a></li>
+            <li><a href="#">Corriere Adriatico</a></li>
+            <li><a href="#">Il Gazzettino</a></li>
+            <li><a href="#">Quotidiano di Puglia</a></li>
+            <li><a href="#">Leggo</a></li>
+            <li><a href="#">Caltagirone editore</a></li>
+            <li><a href="#">PIEMME</a></li>
+            <li><a href="#">Rome & Vatican</a></li>
+            <li><a href="#">Card</a></li>
+            <li><a href="#">Venice Visit Pass</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main content: Articles and Aside for ads -->
+<section class="row m-0 mx-auto border-top py-2" style="max-width: 60%;">
+    <div class="col-12 col-lg-8 border-end remove-border ps-0">
+        <!-- Big article with photo -->
+        <article class="border-bottom">
+            <a href="#">
+                <h1 class="fw-bold display-7 mb-3">
+                    Placeholder Headline: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </h1>
+            </a>
+            <img src="resources/big_art_photo.png" alt="big_art_photo" title="Description of the big article image"
+                 class="img-fluid" style="margin-bottom: 2%;">
+        </article>
+        <!-- Big article only with title -->
+        <article class="border-bottom">
+            <a href="#">
+                <h1 class="fw-bold display-7 mb-3">
+                    Placeholder Headline: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </h1>
+            </a>
+        </article>
+        <!-- Small article with photo -->
+        <article class="last-article border-bottom py-2" style="display: flex; flex-wrap: nowrap;">
+            <!-- Image on the left -->
+            <img src="resources/small_article_photo.png" alt="small_art_photo"
+                 title="Description of the small article image" class="img-fluid"
+                 style="margin-right: 2%; margin-bottom: 0;">
+            <!-- Text on the right -->
+            <div style="flex: 1; margin-top: 0;">
+                <a href="#">
+                    <h2>
+                        Lorem ipsum
+                    </h2>
+                    <p class="fw-bold display-7 mb-3">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium.
+                    </p>
+                </a>
+            </div>
+        </article>
+        <!-- Row of three articles -->
+        <article class="mx-auto py-2  d-sm-block">
+            <div class="row g-3">
+                <!-- Sub-Article 1 -->
+                <article class="col-12 col-md-4 d-flex flex-column">
+                    <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                         title="Description of the article image" class="img-fluid">
+                    <a href="#">Placeholder article description text.</a>
+                    <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+                </article>
+                <!-- Sub-Article 2 -->
+                <article class="col-12 col-md-4 d-flex flex-column">
+                    <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                         title="Description of the article image" class="img-fluid">
+                    <a href="#">Placeholder article description text.</a>
+                    <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+                </article>
+                <!-- Sub-Article 3 -->
+                <article class="col-12 col-md-4 d-flex flex-column">
+                    <img src="resources/article_placeholder_first_row.png" alt="Article Image"
+                         title="Description of the article image" class="img-fluid">
+                    <a href="#">Placeholder article description text.</a>
+                    <p><small><a href="#" style="color:#851a25">di Placeholder</a></small></p>
+                </article>
+            </div>
+        </article>
+        <!-- Small article with photo -->
+        <article class="last-article border-top border-bottom py-2" style="display: flex; flex-wrap: nowrap;">
+            <!-- Image on the left -->
+            <img src="resources/small_article_photo.png" alt="small_art_photo"
+                 title="Description of the small article image" class="img-fluid"
+                 style="margin-right: 2%; margin-bottom: 0;">
+            <!-- Text on the right -->
+            <div style="flex: 1; margin-top: 0;">
+                <a href="#">
+                    <h2>
+                        Lorem ipsum
+                    </h2>
+                    <p class="fw-bold display-7 mb-3">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium.
+                    </p>
+                </a>
+            </div>
+        </article>
+
+        <!-- Two articles in the same row -->
+        <div class="container border-bottom py-3">
+            <div class="row g-4">
+                <!-- Left Article -->
+                <div class="col-12 col-md-6 border-end" id="left-article1">
+                    <article class="ps-0 py-3">
+                        <!-- Title -->
+                        <h5 class="fw-bold mb-3"><a href="#">Placeholder Headline: Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit</a></h5>
+                        <!-- Content with Image on the Left and List Centered Vertically -->
+                        <div class="d-flex align-items-center">
+                            <img src="resources/small.png" alt="Blood Test" title="Description of the article image"
+                                 class="img-fluid me-1" style="max-width: 50%;">
+                            <ul class="mb-0">
+                                <li class="fw-bold">Lorem ipsum</li>
+                                <li class="fw-bold">Lorem ipsum</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <!-- Right Article -->
+                <div class="col-12 col-md-6">
+                    <article class="ps-0 py-3">
+                        <!-- Title -->
+                        <h5 class="fw-bold mb-3"><a href="#">Placeholder Headline: Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit</a></h5>
+                        <!-- Content with Image on the Left and List Centered Vertically -->
+                        <div class="d-flex align-items-center">
+                            <img src="resources/small.png" alt="Helicopter Crash"
+                                 title="Description of the article image" class="img-fluid me-1"
+                                 style="max-width: 50%;">
+                            <ul class="mb-0">
+                                <li class="fw-bold">Lorem ipsum</li>
+                                <li class="fw-bold">Lorem ipsum</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two articles in the same row -->
+        <div class="container border-bottom py-3">
+            <div class="row g-4">
+                <!-- Left Article -->
+                <div class="col-12 col-md-6 border-end" id="left-article2">
+                    <article class="ps-0 py-3">
+                        <!-- Title -->
+                        <h5 class="fw-bold mb-3"><a href="#">Placeholder Headline: Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit</a></h5>
+                        <!-- Content with Image on the Left and List Centered Vertically -->
+                        <div class="d-flex align-items-center">
+                            <img src="resources/small.png" alt="Blood Test" title="Description of the article image"
+                                 class="img-fluid me-1" style="max-width: 50%;">
+                            <ul class="mb-0">
+                                <li class="fw-bold">Lorem ipsum</li>
+                                <li class="fw-bold">Lorem ipsum</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <!-- Right Article -->
+                <div class="col-12 col-md-6">
+                    <article class="ps-0 py-3">
+                        <!-- Title -->
+                        <h5 class="fw-bold mb-3"><a href="#">Placeholder Headline: Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit</a></h5>
+                        <!-- Content with Image on the Left and List Centered Vertically -->
+                        <div class="d-flex align-items-center">
+                            <img src="resources/small.png" alt="Helicopter Crash"
+                                 title="Description of the article image" class="img-fluid me-1"
+                                 style="max-width: 50%;">
+                            <ul class="mb-0">
+                                <li class="fw-bold">Lorem ipsum</li>
+                                <li class="fw-bold">Lorem ipsum</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two articles in the same row -->
+        <div class="container border-bottom py-3">
+            <div class="row g-4">
+                <!-- Left Article -->
+                <div class="col-12 col-md-6 border-end" id="left-article3">
+                    <article class="ps-0 py-3">
+                        <!-- Title -->
+                        <h5 class="fw-bold mb-3"><a href="#">Placeholder Headline: Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit</a></h5>
+                        <!-- Content with Image on the Left and List Centered Vertically -->
+                        <div class="d-flex align-items-center">
+                            <img src="resources/small.png" alt="Blood Test" title="Description of the article image"
+                                 class="img-fluid me-1" style="max-width: 50%;">
+                            <ul class="mb-0">
+                                <li class="fw-bold">Lorem ipsum</li>
+                                <li class="fw-bold">Lorem ipsum</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <!-- Right Article -->
+                <div class="col-12 col-md-6">
+                    <article class="ps-0 py-3">
+                        <!-- Title -->
+                        <h5 class="fw-bold mb-3"><a href="#">Placeholder Headline: Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit</a></h5>
+                        <!-- Content with Image on the Left and List Centered Vertically -->
+                        <div class="d-flex align-items-center">
+                            <img src="resources/small.png" alt="Helicopter Crash"
+                                 title="Description of the article image" class="img-fluid me-1"
+                                 style="max-width: 50%;">
+                            <ul class="mb-0">
+                                <li class="fw-bold">Lorem ipsum</li>
+                                <li class="fw-bold">Lorem ipsum</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="container pt-4">
+            <div class="row g-4">
+                <div class="ps-3 pe-3 pb-2 mt-3" style="background-color: #ccddec">
+                    <!-- Section Header -->
+                    <div class="d-flex justify-content-between align-items-center pb-2 mb-3 mt-4"
+                         style="border-bottom: 0.1rem solid black;">
+                        <h6 class="fw-bold text-uppercase mb-0">NEWSLETTER</h6>
+                    </div>
+                    <article class="mx-auto py-2 d-sm-block">
+                        <div class="row g-3">
+                            <!-- Sub-Article 1 -->
+                            <article class="col-12 col-md-4 d-flex flex-column">
+                                <div class="d-flex align-items-center">
+                                    <!-- Image on the left -->
+                                    <img src="resources/logo.png" alt="Icona Apericena" title="Icona di Apericena"
+                                         class="img-fluid" style="margin-right: 2%; margin-bottom: 0;">
+                                    <!-- Text on the right -->
+                                    <div style="flex: 1; margin-top: 0;">
+                                        <a href="#">
+                                            <h6 class="fw-bold display-7 mb-0">Apericena</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#" style="line-height: 1.1; margin-bottom: 1rem; display: inline-block;">Lorem
+                                    ipsum dolor sit amet</a>
+                                <img src="resources/small_article_photo.png" alt="Small article Image"
+                                     title="Description of the article image" class="img-fluid">
+                                <p class="mt-3"><small><a href="#" style="color:#007aff">di Placeholder</a></small></p>
+                                <a href="#" style="line-height: 1.1;">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit.</a>
+                            </article>
+                            <!-- Sub-Article 2 -->
+                            <article class="col-12 col-md-4 d-flex flex-column">
+                                <div class="d-flex align-items-center">
+                                    <!-- Image on the left -->
+                                    <img src="resources/logo.png" alt="Icona Trendsetting"
+                                         title="Icona del Trendsetting" class="img-fluid"
+                                         style="margin-right: 2%; margin-bottom: 0;">
+                                    <!-- Text on the right -->
+                                    <div style="flex: 1; margin-top: 0;">
+                                        <a href="#">
+                                            <h6 class="fw-bold display-7 mb-0">Trendsetting</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#" style="line-height: 1.1; margin-bottom: 1rem; display: inline-block;">Lorem
+                                    ipsum dolor sit amet</a>
+                                <img src="resources/small_article_photo.png" alt="Small article Image"
+                                     title="Description of the article image" class="img-fluid">
+                                <p class="mt-3"><small><a href="#" style="color:#007aff">di Placeholder</a></small></p>
+                                <a href="#" style="line-height: 1.1;">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit.</a>
+                            </article>
+                            <!-- Sub-Article 3 -->
+                            <article class="col-12 col-md-4 d-flex flex-column">
+                                <div class="d-flex align-items-center">
+                                    <!-- Image on the left -->
+                                    <img src="resources/logo.png" alt="Icona I nostri soldi"
+                                         title="Icona di I nostri soldi" class="img-fluid"
+                                         style="margin-right: 2%; margin-bottom: 0;">
+                                    <!-- Text on the right -->
+                                    <div style="flex: 1; margin-top: 0;">
+                                        <a href="#">
+                                            <h6 class="fw-bold display-7 mb-0">I nostri soldi</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#" style="line-height: 1.1; margin-bottom: 1rem; display: inline-block;">Lorem
+                                    ipsum dolor sit amet</a>
+                                <img src="resources/small_article_photo.png" alt="Small article Image"
+                                     title="Description of the article image" class="img-fluid">
+                                <p class="mt-3"><small><a href="#" style="color:#007aff">di Placeholder</a></small></p>
+                                <a href="#" style="line-height: 1.1; ">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.</a>
+                            </article>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- VITERBO -->
+        <div class="container pt-4 mt-3">
+            <div class="row g-4">
+                <section class="row m-0 py-2 mt-3" style="background-color: lightgray;">
+                    <div class="container my-4">
+                        <!-- Section Header -->
+                        <div class="d-flex align-items-center border-bottom pb-2 mb-3">
+                            <h6 class="fw-bold text-uppercase mb-0">VITERBO</h6>
+                        </div>
+                        <!-- Top Content -->
+                        <div class="row gy-4">
+                            <!-- Main Article -->
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <!-- Image on the left -->
+                                    <div class="col-md-5">
+                                        <img src="resources/small_article_photo.png" alt="Main article"
+                                             title="Description of the article image" class="img-fluid w-100">
+                                    </div>
+                                    <!-- Text on the right -->
+                                    <div class="col-md-7">
+                                        <h4 class="fw-bold">
+                                            <a href="#">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            </a>
+                                        </h4>
+                                        <p class="small text-muted mb-0">
+                                            <span class="text-danger">■</span> Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit.
+                                            Nam est cupiditate error minima, nostrum, dolor sed quas beatae soluta iste
+                                            neque velit
+                                            aliquid veniam quibusdam deserunt, facilis itaque nemo quasi.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Divider -->
+                        <div class="my-4 border-bottom border-secondary"></div>
+                        <!-- Bottom Row -->
+                        <div class="row gy-4">
+                            <!-- Articles Container -->
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <!-- Left Article -->
+                                    <div class="col-6 border-end border-secondary" id="left-article4">
+                                        <article class="py-3 h-100">
+                                            <h5 class="fw-bold mb-3">
+                                                <a href="#">Placeholder Headline: Lorem ipsum dolor sit amet</a>
+                                            </h5>
+                                            <div class="d-flex align-items-center">
+                                                <img src="resources/small.png" alt="Blood Test" class="img-fluid me-2"
+                                                     style="max-width: 50%;"
+                                                     title="Description of the article image">
+                                                <ul class="mb-0">
+                                                    <li class="fw-bold">Lorem ipsum</li>
+                                                    <li class="fw-bold">Lorem ipsum</li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- Right Article -->
+                                    <div class="col-6">
+                                        <article class="py-3 h-100">
+                                            <h5 class="fw-bold mb-3">
+                                                <a href="#">Placeholder Headline: Lorem ipsum dolor sit amet</a>
+                                            </h5>
+                                            <div class="d-flex align-items-center">
+                                                <img src="resources/small.png" alt="Helicopter Crash"
+                                                     class="img-fluid me-2" style="max-width: 50%;"
+                                                     title="Description of the article image">
+                                                <ul class="mb-0">
+                                                    <li class="fw-bold">Lorem ipsum</li>
+                                                    <li class="fw-bold">Lorem ipsum</li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side section for small articles and ads -->
+    <div class="col-lg-4 d-none d-lg-block pe-0">
+        <aside>
+            <!-- Big Advertisement Image -->
+            <div>
+                <img src="resources/ads.png" alt="Advertisement" title="Advertisement" class="img-fluid">
+                <p class="mt-2 text-center">Placeholder for ad text</p>
+            </div>
+            <!-- Grey container with one large image followed by two smaller images -->
+            <div class="d-none d-lg-block" style="background-color: grey;">
+                <!-- Article 1 -->
+                <article class="mb-4 py-2 text-center border-bottom">
+                    <img src="resources/aside.png" alt="Bolsonaro ricoverato" title="Description of the image"
+                         class="img-fluid" style="max-width: 75%; margin: 0 auto;">
+                    <p class="fw-bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </article>
+                <!-- Article 2 -->
+                <article class="ps-2 pb-2 pe-2 mb-4 d-flex align-items-center border-bottom">
+                    <img src="resources/aside_small.png" alt="Squalo nuota" title="Description of the article image"
+                         class="img-fluid me-3" style="max-width: 40%;">
+                    <p class="fw-bold mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </article>
+                <!-- Article 3 -->
+                <article class="ps-2 pb-2 pe-2 d-flex align-items-center">
+                    <img src="resources/aside_small.png" alt="Cina prezzi" title="Description of the article image"
+                         class="img-fluid me-3" style="max-width: 40%;">
+                    <p class="fw-bold mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </article>
+            </div>
+            <!-- Seguici sui social -->
+            <div class="text-start mt-2 pb-3 border-bottom">
+                <p class="border-bottom fw-bold">SEGUICI SUI SOCIAL</p>
+                <div class="d-flex justify-content-center align-items-center mt-3 social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="resources/social.png" alt="Facebook" title="Logo di Facebook" class="img-fluid me-3">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="resources/social.png" alt="Twitter" title="Logo di Twitter" class="img-fluid me-3">
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="resources/social.png" alt="YouTube" title="Logo di Youtube" class="img-fluid me-3">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="resources/social.png" alt="Instagram" title="Logo di Instagram"
+                             class="img-fluid me-3">
+                    </a>
+                    <a href="https://telegram.org" target="_blank">
+                        <img src="resources/social.png" alt="Telegram" title="Logo di Telegram" class="img-fluid me-3">
+                    </a>
+                    <a href="https://www.tiktok.com" target="_blank">
+                        <img src="resources/social.png" alt="TikTok" title="Logo di TikTok" class="img-fluid me-3">
+                    </a>
+                </div>
+            </div>
+
+            <!-- ZOOM -->
+            <div class="border-bottom mt-3">
+                <p class="border-bottom fw-bold p-1" style="background-color: black; color: white; width: fit-content;">
+                    ZOOM</p>
+            </div>
+
+            <div class="row ps-1">
+                <div class="row pe-0">
+                    <article class="d-flex align-items-center pt-2 mt-3"
+                             style="min-height: 6rem; background-color: #f5f5f5;">
+                        <!-- Second Div: Text -->
+                        <div class="col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                        <!-- First Div: Image -->
+                        <div class="ms-0 col-3">
+                            <img src="resources/thumbnail.png" alt="thumbnail" title="Description of the image"
+                                 class="img-fluid">
+                        </div>
+                    </article>
+
+                    <article class="d-flex align-items-center mt-2" style="min-height: 6rem;">
+                        <!-- First Div: Image -->
+                        <div class="col-3">
+                            <img src="resources/thumbnail.png" alt="thumbnail" title="Description of the image"
+                                 class="img-fluid">
+                        </div>
+                        <!-- Second Div: Text -->
+                        <div class="ms-1 col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                    </article>
+
+                    <article class="d-flex align-items-center pt-2"
+                             style="min-height: 6rem; background-color: #f5f5f5;">
+                        <!-- Second Div: Text -->
+                        <div class="col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                        <!-- First Div: Image -->
+                        <div class="ms-0 col-3">
+                            <img src="resources/thumbnail.png" alt="thumbnail" title="Description of the image"
+                                 class="img-fluid">
+                        </div>
+                    </article>
+
+                    <article class="d-flex align-items-center mt-2" style="min-height: 6rem;">
+                        <!-- First Div: Image -->
+                        <div class="col-3">
+                            <img src="resources/thumbnail.png" title="Description of the image" alt="thumbnail"
+                                 class="img-fluid">
+                        </div>
+                        <!-- Second Div: Text -->
+                        <div class="ms-1 col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                    </article>
+
+                    <article class="d-flex align-items-center pt-2"
+                             style="min-height: 6rem; background-color: #f5f5f5;">
+                        <!-- Second Div: Text -->
+                        <div class="col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                        <!-- First Div: Image -->
+                        <div class="ms-0 col-3">
+                            <img src="resources/thumbnail.png" title="Description of the image" alt="thumbnail"
+                                 class="img-fluid">
+                        </div>
+                    </article>
+                    <article class="d-flex align-items-center mt-2" style="min-height: 6rem;">
+                        <!-- First Div: Image -->
+                        <div class="col-3">
+                            <img src="resources/thumbnail.png" title="Description of the image" alt="thumbnail"
+                                 class="img-fluid">
+                        </div>
+                        <!-- Second Div: Text -->
+                        <div class="ms-1 col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                    </article>
+
+                    <article class="d-flex align-items-center pt-2"
+                             style="min-height: 6rem; background-color: #f5f5f5;">
+                        <!-- Second Div: Text -->
+                        <div class="col-9">
+                            <h6><a href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum
+                                blanditiis culpa tempora delectus.</a></h6>
+                            <p style="color: #851a25;">di Lorem Ipsum</p>
+                        </div>
+                        <!-- First Div: Image -->
+                        <div class="ms-0 col-3">
+                            <img src="resources/thumbnail.png" alt="thumbnail" title="Description of the image"
+                                 class="img-fluid">
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Le opinioni del messaggero -->
+            <div class="border-bottom mt-4">
+                <p class="border-bottom fw-bold p-1" style="color: black; width: fit-content;">LE OPINIONI DEL
+                    MESSAGGERO</p>
+            </div>
+
+            <div>
+                <!-- First -->
+                <div class="row ps-1">
+                    <div class="row pe-0">
+                        <article class="d-flex align-items-center pt-2 mt-3"
+                                 style="min-height: 6rem; background-color: #f5f5f5;">
+                            <!-- First Div: Text -->
+                            <div class="col-9">
+                                <p class="fw-bold" style="color: #b22222;">LOREM IPSUM</p>
+                                <h6><a href="#">Lorem ipsum dolor sit amet. Expedita laborum blanditiis culpa tempora
+                                    delectus.</a></h6>
+                            </div>
+                            <!-- Second Div: Image -->
+                            <div class="ms-0 col-3">
+                                <img src="resources/thumbnail.png" alt="Author's Icon" title="Author's Icon"
+                                     class="img-fluid rounded-circle">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Second -->
+                <div class="row ps-1">
+                    <div class="row pe-0">
+                        <article class="d-flex align-items-center pt-2 mt-3"
+                                 style="min-height: 6rem; background-color: #f5f5f5;">
+                            <!-- First Div: Text -->
+                            <div class="col-9">
+                                <p class="fw-bold" style="color: #b22222;">LOREM IPSUM</p>
+                                <h6><a href="#">Lorem ipsum dolor sit amet. Expedita laborum blanditiis culpa tempora
+                                    delectus.</a></h6>
+                            </div>
+                            <!-- Second Div: Image -->
+                            <div class="ms-0 col-3">
+                                <img src="resources/thumbnail.png" alt="Author's Icon" title="Author's Icon"
+                                     class="img-fluid rounded-circle">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!--Third-->
+                <div class="row ps-1">
+                    <div class="row pe-0">
+                        <article class="d-flex align-items-center pt-2 mt-3"
+                                 style="min-height: 6rem; background-color: #f5f5f5;">
+                            <!-- First Div: Text -->
+                            <div class="col-9">
+                                <p class="fw-bold" style="color: #b22222;">LOREM IPSUM</p>
+                                <h6><a href="#">Lorem ipsum dolor sit amet. Expedita laborum blanditiis culpa tempora
+                                    delectus.</a></h6>
+                            </div>
+                            <!-- Second Div: Image -->
+                            <div class="ms-0 col-3">
+                                <img src="resources/thumbnail.png" alt="Author's Icon" title="Author's Icon"
+                                     class="img-fluid rounded-circle">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apericena-newsletter -->
+            <div class="row ps-1">
+                <div class="row pe-0">
+                    <div class="my-3 p-3" style="background-color: #ccddec">
+                        <div class="d-flex align-items-center">
+                            <!-- Image on the left -->
+                            <img src="resources/logo.png" alt="Icona Apericena" title="Icona di Apericena"
+                                 class="img-fluid me-2">
+                            <!-- Text on the right -->
+                            <div style="flex: 1; margin-top: 0;">
+                                <a href="#">
+                                    <h6 class="fw-bold display-7 mb-0">Apericena - Newsletter</h6>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <p><i>Lorem ipsum dolor</i> sit amet. <b>Consectetur</b> adipisicing elit.</p>
+                        </div>
+                        <div class="row mt-2 d-flex">
+                            <div class="col-7 me-0">
+                                <input class="form-control w-100" type="search" placeholder="Inserire l'email"
+                                       aria-label="Search">
+                            </div>
+                            <div class="col-5 ps-0">
+                                <button class="btn btn-blue w-100 d-flex justify-content-center align-items-center"
+                                        style="height: 100%; font-size: small">ISCRIVITI
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posta del cuore -->
+            <div class="border-bottom mt-0">
+                <p class="border-bottom fw-bold p-1" style="color: black; width: fit-content;">POSTA DEL CUORE</p>
+            </div>
+
+            <div class="row ps-1">
+                <div class="row pe-0">
+                    <article class="d-flex align-items-center pt-2 mt-3"
+                             style="min-height: 6rem; background-color: #f5f5f5;">
+                        <!-- Div: Text -->
+                        <div class="col-9">
+                            <p class="fw-bold" style="color: #b22222;">LOREM IPSUM</p>
+                            <h6><a href="#">Lorem ipsum dolor sit amet. Expedita laborum blanditiis culpa tempora
+                                delectus.</a></h6>
+                        </div>
+                        <!-- Div: Image -->
+                        <div class="ms-0 col-3">
+                            <img src="resources/thumbnail.png" alt="Author's Icon" title="Author's Icon"
+                                 class="img-fluid rounded-circle">
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- In vista -->
+            <div class="border-bottom mt-3">
+                <p class="border-bottom fw-bold p-1" style="color: black; width: fit-content;">IN VISTA</p>
+            </div>
+            <div class="row ps-1">
+                <div class="row pe-0">
+                    <!-- Div: Image -->
+                    <div class="mt-3 ms-0 col-12 p-0">
+                        <video src="resources/placeholder_video.mp4" title="Description of the video"
+                               style="width: 100%;" controls>
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Div: Text -->
+                <div class="row p-0">
+                    <a href="#"><b>Lorem ipsum dolor sit consectetur elit</b></a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- TV & Spettacoli -->
+<section class="row m-0 mx-auto border-top py-2 mt-3" style="max-width: 60%; background-color: lightgray;">
+    <div class="container my-4">
+        <!-- Section Header -->
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+            <h6 class="fw-bold text-uppercase mb-0">TV & SPETTACOLI</h6>
+            <a href="#" class="text-decoration-none fw-semibold small">VEDI TUTTI &gt;</a>
+        </div>
+        <!-- Top Content: Main + Side -->
+        <div class="row gy-4">
+            <!-- Main Article -->
+            <div class="col-12 col-md-8">
+                <div class="row g-3">
+                    <!-- Image on the left -->
+                    <div class="col-md-5">
+                        <img src="resources/small_article_photo.png" alt="Main article"
+                             title="Description of the article image" class="img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                    <!-- Text on the right -->
+                    <div class="col-md-7">
+                        <h4 class="fw-bold">
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </a>
+                        </h4>
+                        <p class="small text-muted mb-0">
+                            <span class="text-danger">■</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nam est cupiditate error minima, nostrum, dolor sed quas beatae soluta iste neque velit
+                            aliquid veniam quibusdam deserunt, facilis itaque nemo quasi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Side Article -->
+            <div class="col-12 col-md-4">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <img src="resources/small_article_photo.png" alt="Side article"
+                             title="Description of the article image" class="img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                    <div class="col-12">
+                        <h4 class="fw-bold">
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Divider -->
+        <hr class="my-4">
+        <!-- Bottom Row -->
+        <div class="row gy-4">
+            <!-- Articles Container -->
+            <div class="col-lg-8 d-flex flex-column">
+                <!-- Article Up -->
+                <div class="d-flex mb-4">
+                    <div class="me-3 flex-shrink-0">
+                        <img src="resources/small_article_photo.png" alt="Shaila Gatta"
+                             title="Description of the article image" class="img-fluid" style="max-width: 10em;">
+                    </div>
+                    <div>
+                        <h4 class="fw-bold">
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </a>
+                        </h4>
+                        <p class="small text-muted mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
+                </div>
+                <!-- Article Down -->
+                <div class="d-flex">
+                    <div class="me-3 flex-shrink-0">
+                        <img src="resources/small_article_photo.png" alt="The Voice Senior"
+                             title="Description of the article image" class="img-fluid" style="max-width: 10em;">
+                    </div>
+                    <div>
+                        <h4 class="fw-bold">
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </a>
+                        </h4>
+                        <p class="small text-muted mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Column -->
+            <div class="col-lg-4 ads">
+                <img src="resources/ads.png" alt="ads" title="Ads" class="img-fluid w-75 h-auto">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Health Section -->
+<section class="row m-0 mx-auto border-top py-2 mt-5" style="max-width: 60%; background-color: lightgray;">
+    <div class="container my-4">
+        <!-- Section Header -->
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+            <h6 class="fw-bold text-uppercase mb-0">SALUTE</h6>
+        </div>
+        <!-- Top Content: Upper + Bottom -->
+        <div class="row g-1 pb-2">
+            <!-- Upper Article -->
+            <div class="col-md-12">
+                <!-- Text on the top -->
+                <div class="col-md-12">
+                    <h4 class="fw-bold">
+                        <a href="#">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </a>
+                    </h4>
+                </div>
+                <!-- Image on the bottom -->
+                <div class="col-md-12">
+                    <img src="resources/big_art_photo.png" alt="Upper article"
+                         title="Description of the big article image"
+                         class="img-fluid w-100 h-100 object-fit-cover mb-1">
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <!-- Bottom Article 1 -->
+            <div class="col-12 col-md-4">
+                <article class="d-flex">
+                    <!-- Image on the left -->
+                    <img src="resources/small_article_photo.png" alt="small_art_photo"
+                         title="Description of the small article image" class="img-fluid me-2"
+                         style="width: 50%; height: 47%; object-fit: cover;">
+                    <!-- Text on the right -->
+                    <div>
+                        <a href="#">
+                            <h6 style="color: #d32f2f;">Lorem ipsum</h6>
+                            <p class="fw-bold small mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium doloremque laudantium.</p>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Bottom Article 2 -->
+            <div class="col-12 col-md-4">
+                <article class="d-flex">
+                    <!-- Image on the left -->
+                    <img src="resources/small_article_photo.png" alt="small_art_photo"
+                         title="Description of the small article image" class="img-fluid me-2"
+                         style="width: 50%; height: 47%; object-fit: cover;">
+                    <!-- Text on the right -->
+                    <div>
+                        <a href="#">
+                            <h6 style="color: #d32f2f;">Lorem ipsum</h6>
+                            <p class="fw-bold small mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium doloremque laudantium.</p>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Bottom Article 3 -->
+            <div class="col-12 col-md-4">
+                <article class="d-flex">
+                    <!-- Image on the left -->
+                    <img src="resources/small_article_photo.png" alt="small_art_photo"
+                         title="Description of the small article image" class="img-fluid me-2"
+                         style="width: 50%; height: 47%; object-fit: cover;">
+                    <!-- Text on the right -->
+                    <div>
+                        <a href="#">
+                            <h6 style="color: #d32f2f;">Lorem ipsum</h6>
+                            <p class="fw-bold small mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium doloremque laudantium.</p>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer and legal notes -->
+<footer class="py-2 ps-0 my-5 border-top mx-auto wrapper container-fluid" style="width: 60%;">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <img src="resources/footer.png" alt="footer" title="Logo del Messaggero" class="img-fluid">
+        </div>
+        <div class="text-end" style="font-size: 0.8rem; font-weight: bold;">
+            &copy; Lorem ipsum lorem ipsum lorem ipsum
+        </div>
+    </div>
+    <!-- sections-about -->
+    <div class="ps-5 py-5">
+        <div class="container-fluid px-0 d-none d-md-block">
+            <div class="row w-100 mx-auto text-start">
+                <!-- SEZIONI -->
+                <div class="col-lg-6 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Sezioni</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="footer-link">Persone</a></li>
+                                <li><a href="#" class="footer-link">Italia</a></li>
+                                <li><a href="#" class="footer-link">Mondo</a></li>
+                                <li><a href="#" class="footer-link">Economia</a></li>
+                                <li><a href="#" class="footer-link">Politica</a></li>
+                                <li><a href="#" class="footer-link">Salute</a></li>
+                                <li><a href="#" class="footer-link">Schede</a></li>
+                                <li><a href="#" class="footer-link">Sport</a></li>
+                                <li><a href="#" class="footer-link">Spettacoli</a></li>
+                                <li><a href="#" class="footer-link">Donna</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="footer-link">Vaticano</a></li>
+                                <li><a href="#" class="footer-link">Motori</a></li>
+                                <li><a href="#" class="footer-link">Obbligati a</a></li>
+                                <li><a href="#" class="footer-link">Crescere</a></li>
+                                <li><a href="#" class="footer-link">Gossip</a></li>
+                                <li><a href="#" class="footer-link">Blog</a></li>
+                                <li><a href="#" class="footer-link">Social</a></li>
+                                <li><a href="#" class="footer-link">Animali</a></li>
+                                <li><a href="#" class="footer-link">Alimentazione</a></li>
+                                <li><a href="#" class="footer-link">Televisione</a></li>
+                                <li><a href="#" class="footer-link">Libri</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="footer-link">Scienza</a></li>
+                                <li><a href="#" class="footer-link">Tecnologia</a></li>
+                                <li><a href="#" class="footer-link">PC</a></li>
+                                <li><a href="#" class="footer-link">Scuola</a></li>
+                                <li><a href="#" class="footer-link">Moda</a></li>
+                                <li><a href="#" class="footer-link">Viaggi</a></li>
+                                <li><a href="#" class="footer-link">Casa</a></li>
+                                <li><a href="#" class="footer-link">Ultimissime</a></li>
+                                <li><a href="#" class="footer-link">Partner</a></li>
+                                <li><a href="#" class="footer-link">Videogames</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- EDIZIONI LOCALI -->
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Edizioni Locali</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Roma</a></li>
+                        <li><a href="#" class="footer-link">Viterbo</a></li>
+                        <li><a href="#" class="footer-link">Rieti</a></li>
+                        <li><a href="#" class="footer-link">Latina</a></li>
+                        <li><a href="#" class="footer-link">Frosinone</a></li>
+                        <li><a href="#" class="footer-link">Abruzzo</a></li>
+                        <li><a href="#" class="footer-link">Marche</a></li>
+                        <li><a href="#" class="footer-link">Umbria</a></li>
+                    </ul>
+                </div>
+                <!-- MULTIMEDIA -->
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Multimedia</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Video</a></li>
+                        <li><a href="#" class="footer-link">Podcast</a></li>
+                        <li><a href="#" class="footer-link">Foto</a></li>
+                    </ul>
+                </div>
+                <!-- SERVIZI -->
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Servizi</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Meteo</a></li>
+                        <li><a href="#" class="footer-link">Oroscopo</a></li>
+                        <li><a href="#" class="footer-link">Sondaggi</a></li>
+                        <li><a href="#" class="footer-link">Abbonamento</a></li>
+                        <li><a href="#" class="footer-link">Necrologie</a></li>
+                        <li><a href="#" class="footer-link">Legalmente</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Social Icons -->
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="resources/social.png" alt="Facebook" title="Logo di Facebook" class="img-fluid me-3">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="resources/social.png" alt="Twitter" title="Logo di Twitter" class="img-fluid me-3">
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="resources/social.png" alt="YouTube" title="Logo di YouTube" class="img-fluid me-3">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="resources/social.png" alt="Instagram" title="Logo di Instagram" class="img-fluid me-3">
+                </a>
+                <a href="https://telegram.org" target="_blank">
+                    <img src="resources/social.png" alt="Telegram" title="Logo di Telegram" class="img-fluid me-3">
+                </a>
+                <a href="https://www.tiktok.com" target="_blank">
+                    <img src="resources/social.png" alt="TikTok" title="Logo di TikTok" class="img-fluid me-3">
+                </a>
+            </div>
+        </div>
+        <!-- links -->
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-3 text-center border-bottom fw-bold text-uppercase">
+            <a href="#" class="footer-link pe-3 border-end ">Lorem</a>
+            <a href="#" class="footer-link pe-3 border-end">Lorem</a>
+            <a href="#" class="footer-link pe-3 border-end">Lorem</a>
+            <a href="#" class="footer-link pe-3 border-end">Lorem</a>
+            <a href="#" class="footer-link pe-3 border-end">Lorem</a>
+            <a href="#" class="footer-link pe-3 border-end">Lorem</a>
+            <a href="#" class="footer-link pe-3">Lorem</a>
+        </div>
+        <!-- Footer Legal Links -->
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-3 small text-center">
+            <a href="#" class="footer-link">Lorem</a>
+            <a href="#" class="footer-link">Lorem</a>
+            <a href="#" class="footer-link">Lorem</a>
+            <a href="#" class="footer-link">Lorem</a>
+            <a href="#" class="footer-link">Lorem</a>
+            <a href="#" class="footer-link">Lorem</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

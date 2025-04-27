@@ -1,0 +1,182 @@
+/* Base Styles */
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: underline;
+}
+
+h1 {
+    line-height: 1.1;
+    color: black;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #d32f2f;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+}
+
+/* Layout Components */
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.d-flex > span {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Buttons */
+.btn-dark-red {
+    background-color: #5a0000;
+    color: white;
+}
+
+.btn-bright-red {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.btn-blue {
+    background-color: #007aff;
+    color: white;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1.3rem;
+}
+
+/* Offcanvas Styles */
+.offcanvas-header .btn-close {
+    font-size: 1.3rem;
+}
+
+.offcanvas-body a {
+    color: black !important;
+}
+
+.offcanvas-body a:hover {
+    color: black;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.offcanvas-body .section-title + div {
+    margin-bottom: 1rem;
+}
+
+/* Article Layouts */
+article.last-article {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+article.last-article img {
+    width: 60%;
+    margin-right: 2%;
+    margin-bottom: 0;
+}
+
+article.last-article div {
+    flex: 1;
+}
+
+/* Footer */
+.footer-link {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+/* Bell's Animation */
+.bell-hover {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bell-hover:hover {
+    animation: bell-shake 0.6s ease-in-out;
+}
+
+@keyframes bell-shake {
+    0% { transform: rotate(0); }
+    20% { transform: rotate(-15deg); }
+    40% { transform: rotate(10deg); }
+    60% { transform: rotate(-10deg); }
+    80% { transform: rotate(8deg); }
+    100% { transform: rotate(0); }
+}
+
+/* Media Queries - grouped by breakpoint */
+@media (max-width: 991.98px) {
+    .mx-auto {
+        max-width: 90% !important;
+    }
+
+    .remove-border {
+        border-right: none !important;
+    }
+
+    div.ads {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    article.last-article {
+        flex-direction: column;
+    }
+
+    article.last-article img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    article.last-article div {
+        margin-top: 0.5rem;
+    }
+
+    #left-article1 {
+        border-right: none !important;
+    }
+
+    #left-article2 {
+        border-right: none !important;
+    }
+
+    #left-article3 {
+        border-right: none !important;
+    }
+
+    #left-article4 {
+        border-right: none !important;
+    }
+}
