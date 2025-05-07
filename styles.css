@@ -65,6 +65,16 @@ p {
     font-size: 1.3rem;
 }
 
+/* Form aside */
+.bg-navy {
+    background-color: #1a3264;
+}
+
+.btn.bg-navy:hover {
+    background-color: #0e1c38 !important;
+    color: white !important;
+}
+
 /* Offcanvas Styles */
 .offcanvas-header .btn-close {
     font-size: 1.3rem;
@@ -177,6 +187,14 @@ article.last-article div {
     }
 
     #left-article4 {
+        border-right: none !important;
+    }
+
+    #left-article5 {
+        border-right: none !important;
+    }
+
+    #left-article6 {
         border-right: none !important;
     }
 }
